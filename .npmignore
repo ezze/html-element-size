@@ -1,0 +1,10 @@
+.idea
+coverage
+src
+test
+*.log
+.babelrc
+.eslintrc.json
+.npmignore
+.travis.yml
+yarn.lock

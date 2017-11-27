@@ -1,10 +1,21 @@
 {
   "name": "html-element-size",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Helper function to get size of unvisible HTML element or HTML element not attached to DOM",
-  "main": "index.js",
+  "main": "lib/htmlElementSize.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf lib dist",
+    "build": "npm run transpile && npm run browserify && npm run uglify",
+    "rebuild": "npm run clean && npm run build",
+    "transpile": "babel src -d lib",
+    "browserify": "mkdirp dist && browserify lib/htmlElementSize.js --standalone htmlElementSize -o dist/html-element-size.js -d",
+    "uglify": "uglifyjs -c warnings=false -o dist/html-element-size.min.js -- dist/html-element-size.js",
+    "lint": "eslint ./src",
+    "lint:test": "eslint -c .eslintrc.test.json ./test",
+    "test": "mocha --recursive --require babel-register test",
+    "test:coverage": "istanbul cover _mocha -- --recursive --require babel-register test",
+    "test:coveralls": "npm run test:coverage && cat ./coverage/lcov.info | coveralls",
+    "prepublishOnly": "npm run lint && npm test && npm run rebuild"
   },
   "repository": {
     "type": "git",
@@ -21,5 +32,23 @@
   "bugs": {
     "url": "https://github.com/ezze/html-element-size/issues"
   },
-  "homepage": "https://github.com/ezze/html-element-size#readme"
+  "homepage": "https://github.com/ezze/html-element-size#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "browserify": "^14.5.0",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.12.0",
+    "eslint-config-ezze": "^0.2.0",
+    "istanbul": "^0.4.5",
+    "mkdirp": "^0.5.1",
+    "mocha": "^4.0.1",
+    "rimraf": "^2.6.2",
+    "uglify-js": "^3.2.0"
+  }
 }
