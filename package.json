@@ -11,7 +11,7 @@
     "browserify": "mkdirp dist && browserify lib/htmlElementSize.js --standalone htmlElementSize -o dist/html-element-size.js -d",
     "uglify": "uglifyjs -c warnings=false -o dist/html-element-size.min.js -- dist/html-element-size.js",
     "lint": "eslint ./src",
-    "lint:test": "eslint -c .eslintrc.test.json ./test",
+    "lint:test": "eslint -c test/.eslintrc.json ./test",
     "test": "mocha --recursive --require babel-register test",
     "test:coverage": "istanbul cover _mocha -- --recursive --require babel-register test",
     "test:coveralls": "npm run test:coverage && cat ./coverage/lcov.info | coveralls",
