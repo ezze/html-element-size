@@ -1,5 +1,7 @@
 # html-element-size
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ezze/html-element-size.svg)](https://greenkeeper.io/)
+
 [![NPM Version](https://badge.fury.io/js/html-element-size.svg)](https://badge.fury.io/js/html-element-size)
 [![Build Status](https://travis-ci.org/ezze/html-element-size.svg?branch=develop)](https://travis-ci.org/ezze/html-element-size)
 [![Coverage Status](https://coveralls.io/repos/github/ezze/html-element-size/badge.svg?branch=develop)](https://coveralls.io/github/ezze/html-element-size?branch=develop)
