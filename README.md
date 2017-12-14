@@ -14,7 +14,7 @@ npm install html-element-size --save
     
 ## Usage
 
-- require with Node.js:
+- require with Node.js: 
 
     ```javascript
     var htmlElementSize = require('html-element-size');
